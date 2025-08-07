@@ -1,0 +1,205 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(90deg, #f8fafc 0%, #e0e7ff 100%);
+  min-height: 100vh;
+  color: #222;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background: none;
+  padding: 2rem 0 1rem 0;
+  text-align: center;
+  color: #222;
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-header p {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.App-main {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 2rem 0 0 0;
+}
+
+.container {
+  width: 100vw;
+  max-width: 1200px;
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 70vh;
+  gap: 0;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px rgba(60,60,100,0.04);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.features {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.message-composer, .scheduled-messages {
+  flex: 1 1 50%;
+  min-width: 0;
+  min-height: 0;
+  padding: 3rem 2rem;
+  background: #f8fafc;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.scheduled-messages {
+  background: #e0e7ff;
+  border-left: 1px solid #e5e7eb;
+}
+
+.message-composer h3, .scheduled-messages h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.form-group label {
+  color: #222;
+  font-weight: 500;
+}
+
+.form-group select,
+.form-group textarea,
+.form-group input[type="datetime-local"] {
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 1rem;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  transition: border-color 0.2s;
+}
+.form-group select:focus,
+.form-group textarea:focus,
+.form-group input[type="datetime-local"]:focus {
+  border-color: #6366f1;
+}
+
+.send-btn, .refresh-btn, .connect-btn, .disconnect-btn, .cancel-btn {
+  background: linear-gradient(90deg, #6366f1 0%, #818cf8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+  margin-top: 1.2rem;
+}
+.send-btn:hover, .refresh-btn:hover, .connect-btn:hover, .disconnect-btn:hover, .cancel-btn:hover {
+  background: linear-gradient(90deg, #818cf8 0%, #6366f1 100%);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(99,102,241,0.12);
+}
+.send-btn:disabled, .refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status-message {
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.status-message.success {
+  background: #e0f7e9;
+  color: #15803d;
+}
+.status-message.error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .dashboard, .features {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .message-composer, .scheduled-messages {
+    padding: 2rem 1rem;
+    min-height: 40vh;
+  }
+  .scheduled-messages {
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+  }
+}
+
+@media (max-width: 600px) {
+  .App-header h1 {
+    font-size: 1.5rem;
+  }
+  .dashboard, .features {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

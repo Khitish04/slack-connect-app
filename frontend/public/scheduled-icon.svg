@@ -1,0 +1,21 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Calendar background -->
+  <rect x="2" y="4" width="16" height="16" rx="2" fill="#E0F2FE" stroke="#000" stroke-width="2"/>
+  
+  <!-- Calendar top bar (pink) -->
+  <rect x="2" y="4" width="16" height="4" rx="2" fill="#EC4899" stroke="#000" stroke-width="2"/>
+  
+  <!-- Calendar rings (yellow) -->
+  <ellipse cx="6" cy="6" rx="1.5" ry="0.8" fill="#FCD34D" stroke="#000" stroke-width="1"/>
+  <ellipse cx="14" cy="6" rx="1.5" ry="0.8" fill="#FCD34D" stroke="#000" stroke-width="1"/>
+  
+  <!-- Calendar dot (notification) -->
+  <circle cx="4" cy="8" r="1" fill="#000"/>
+  
+  <!-- Envelope (blue) overlapping calendar -->
+  <path d="M14 12L18 15L14 18L10 15L14 12Z" fill="#87CEEB" stroke="#000" stroke-width="2"/>
+  
+  <!-- Envelope flap -->
+  <path d="M14 12L18 15L14 18" fill="none" stroke="#000" stroke-width="2"/>
+  <path d="M14 12L10 15L14 18" fill="none" stroke="#000" stroke-width="2"/>
+</svg> 

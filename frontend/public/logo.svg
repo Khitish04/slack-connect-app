@@ -1,0 +1,20 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main circle background -->
+  <circle cx="24" cy="24" r="22" fill="url(#blueGradient)" stroke="#000" stroke-width="2"/>
+  
+  <!-- Stylized "S" shape -->
+  <path d="M16 14C16 12 18 10 20 10C22 10 24 12 24 14C24 16 22 18 20 18C18 18 16 20 16 22C16 24 18 26 20 26C22 26 24 28 24 30C24 32 22 34 20 34C18 34 16 32 16 30" 
+        fill="#000" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Alternative "S" with smoother curves -->
+  <path d="M18 12C18 10 20 8 22 8C24 8 26 10 26 12C26 14 24 16 22 16C20 16 18 18 18 20C18 22 20 24 22 24C24 24 26 26 26 28C26 30 24 32 22 32C20 32 18 30 18 28" 
+        fill="#000" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+</svg> 

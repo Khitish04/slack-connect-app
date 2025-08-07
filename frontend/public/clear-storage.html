@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Storage</title>
+</head>
+<body>
+    <h1>Clearing localStorage...</h1>
+    <script>
+        localStorage.removeItem('userId');
+        localStorage.removeItem('teamId');
+        alert('localStorage cleared! Please refresh the main app.');
+        window.location.href = 'http://localhost:3001';
+    </script>
+</body>
+</html> 
