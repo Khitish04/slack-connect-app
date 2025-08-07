@@ -12,7 +12,8 @@ const SlackConnect: React.FC<SlackConnectProps> = ({ onWorkspaceConnected }) => 
     const teamId = 'T0992DARSKG';
     
     // Simulate OAuth flow
-    window.open('https://23cae76c11f5.ngrok-free.app/api/auth/slack', '_blank');
+    const backendUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+    window.open(`${backendUrl}/api/auth/slack`, '_blank');
     
     // For demo, we'll auto-connect after a delay
     setTimeout(() => {
