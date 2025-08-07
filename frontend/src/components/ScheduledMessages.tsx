@@ -33,11 +33,14 @@ const ScheduledMessages: React.FC<ScheduledMessagesProps> = ({
   const [messages, setMessages] = useState<ScheduledMessage[]>([]);
   const [status, setStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
+  // Get backend URL from environment variable
+  const backendUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
   const fetchScheduledMessages = useCallback(async () => {
     try {
       setLoading(true);
       console.log('Fetching scheduled messages for:', userId, teamId);
-      const response = await axios.get<ApiResponse>(`http://localhost:3000/api/messages/scheduled/${userId}/${teamId}`);
+      const response = await axios.get<ApiResponse>(`${backendUrl}/api/messages/scheduled/${userId}/${teamId}`);
       console.log('Scheduled messages response:', response.data);
       setMessages(response.data.data);
     } catch (error: any) {
@@ -47,7 +50,7 @@ const ScheduledMessages: React.FC<ScheduledMessagesProps> = ({
     } finally {
       setLoading(false);
     }
-  }, [userId, teamId, setLoading]);
+  }, [userId, teamId, setLoading, backendUrl]);
 
   // Fetch scheduled messages on component mount
   useEffect(() => {
@@ -57,7 +60,7 @@ const ScheduledMessages: React.FC<ScheduledMessagesProps> = ({
   const handleCancelMessage = async (messageId: number) => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:3000/api/messages/cancel/${messageId}`);
+      await axios.delete(`${backendUrl}/api/messages/cancel/${messageId}`);
       setStatus({ type: 'success', message: 'Message cancelled successfully!' });
       // Refresh the list
       fetchScheduledMessages();

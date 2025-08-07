@@ -33,11 +33,14 @@ const MessageComposer: React.FC<MessageComposerProps> = ({
   const [isScheduled, setIsScheduled] = useState<boolean>(false);
   const [status, setStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
+  // Get backend URL from environment variable
+  const backendUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
   const fetchChannels = useCallback(async () => {
     try {
       setLoading(true);
       console.log('Fetching channels for:', userId, teamId);
-      const response = await axios.get<ApiResponse>(`http://localhost:3000/api/messages/channels/${userId}/${teamId}`);
+      const response = await axios.get<ApiResponse>(`${backendUrl}/api/messages/channels/${userId}/${teamId}`);
       console.log('Channels response:', response.data);
       setChannels(response.data.data);
       if (response.data.data.length > 0) {
@@ -50,7 +53,7 @@ const MessageComposer: React.FC<MessageComposerProps> = ({
     } finally {
       setLoading(false);
     }
-  }, [userId, teamId, setLoading]);
+  }, [userId, teamId, setLoading, backendUrl]);
 
   // Fetch channels on component mount
   useEffect(() => {
@@ -69,7 +72,7 @@ const MessageComposer: React.FC<MessageComposerProps> = ({
 
       if (isScheduled && scheduledFor) {
         // Send scheduled message
-        await axios.post('http://localhost:3000/api/messages/schedule', {
+        await axios.post(`${backendUrl}/api/messages/schedule`, {
           userId,
           teamId,
           channelId: selectedChannel,
@@ -79,7 +82,7 @@ const MessageComposer: React.FC<MessageComposerProps> = ({
         setStatus({ type: 'success', message: 'Message scheduled successfully!' });
       } else {
         // Send immediate message
-        await axios.post('http://localhost:3000/api/messages/send', {
+        await axios.post(`${backendUrl}/api/messages/send`, {
           userId,
           teamId,
           channelId: selectedChannel,
