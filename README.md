@@ -262,13 +262,3 @@ npx prisma generate
 ## License
 
 Licensed under the MIT License.
-
-```
-
----
-
-If you want, I can **enhance this further with GitHub badges and a diagram** showing the workflow between Slack, Vercel, and Render.  
-That would make it more professional and attractive when someone opens your repo.  
-
-Do you want me to add those enhancements?
-```
